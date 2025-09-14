@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ movie.title }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <img src="{{ movie.thumbnail.url }}" class="img-fluid rounded" alt="{{ movie.title }}" />
+    </div>
+    <div class="col-md-6">
+        <h2>{{ movie.title }}</h2>
+        <p>{{ movie.description }}</p>
+        <p><strong>Narxi:</strong> {{ movie.price }} so'm</p>
+
+        <form method="POST" action="{% url 'purchase_movie' movie.id %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-success">Sotib olish</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm p-4">
+    <h2>Salom, {{ user.username }}!</h2>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <p><strong>Premium foydalanuvchi:</strong> {% if user.is_premium %}Ha{% else %}Yo‘q{% endif %}</p>
+    <p><strong>Bloklangan:</strong> {% if user.is_blocked %}Ha{% else %}Yo‘q{% endif %}</p>
+</div>
+{% endblock %}
